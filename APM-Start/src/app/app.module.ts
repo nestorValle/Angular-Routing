@@ -25,7 +25,7 @@ import { AppRoutes } from './app-routes';
     ProductModule,
     UserModule,
     MessageModule,
-    RouterModule.forRoot(AppRoutes)
+    RouterModule.forRoot(AppRoutes),
   ],
   declarations: [
     AppComponent,

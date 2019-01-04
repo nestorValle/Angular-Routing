@@ -1,3 +1,4 @@
+<i class="fa fa-spinner spinner" aria-hidden="true" *ngIf="loading"></i>
 <nav class="navbar navbar-expand navbar-light bg-light">
   <a class="navbar-brand">{{pageTitle}}</a>
   <ul class="navbar-nav">
@@ -5,7 +6,8 @@
       <a [routerLink]="['/welcome']" routerLinkActive="router-link-active"  class="nav-link">Home</a>
     </li>
     <li class="nav-item">
-      <a [routerLink]="['/products']" routerLinkActive="router-link-active"  class="nav-link">Product List</a>
+      <a [routerLink]="['/products']" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{exact: true }"
+       class="nav-link">Product List</a>
     </li>
     <li class="nav-item">
       <a [routerLink]="['/products', 0, 'edit']" routerLinkActive="router-link-active"  class="nav-link">Add Product</a>
@@ -17,7 +19,8 @@
       <a class="nav-link">Welcome {{ userName }}</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link">Show Messages</a>
+      <a class="nav-link" (click)="navigateMessage()" >
+          {{toggleMessage ? 'Show' : 'Hide'}} Messages</a>
     </li>
     <li class="nav-item"
         *ngIf="!isLoggedIn">
@@ -30,6 +33,13 @@
     </li>
   </ul>
 </nav>
-<div class="container">
-  <router-outlet></router-outlet>
+<div class="container" [@slideInAnimation]="out.isActivated ? out.activatedRoute : ''">
+  <div class="row">
+    <div class="col-md-10">
+        <router-outlet #out="outlet"></router-outlet>
+    </div>
+    <div class="col-md-2">
+        <router-outlet name="popup"></router-outlet>
+      </div>
+  </div>
 </div>

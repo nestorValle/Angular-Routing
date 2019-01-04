@@ -64,12 +64,12 @@
     border-radius: 0 8px 0px 0;
 }
 
-.wizard .active {
+.wizard .router-link-active {
     background: #007ACC;
     color: #fff;
 }
 
     /* Adds the right arrow after the tab */
-.wizard .active:after {
+.wizard .router-link-active:after {
     border-left-color: #007ACC;
 }

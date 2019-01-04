@@ -16,6 +16,7 @@ import { UserModule } from './user/user.module';
 import { MessageModule } from './messages/message.module';
 import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app-routes';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { AppRoutes } from './app-routes';
     UserModule,
     MessageModule,
     RouterModule.forRoot(AppRoutes),
+    BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,

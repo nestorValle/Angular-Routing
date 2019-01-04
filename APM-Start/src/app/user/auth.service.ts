@@ -7,6 +7,7 @@ import { MessageService } from '../messages/message.service';
   providedIn: 'root'
 })
 export class AuthService {
+  redirectURL: string;
   currentUser: User;
 
   get isLoggedIn(): boolean {

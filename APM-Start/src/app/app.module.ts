@@ -11,10 +11,9 @@ import { WelcomeComponent } from './home/welcome.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 
 /* Feature Modules */
-import { ProductModule } from './products/product.module';
 import { UserModule } from './user/user.module';
 import { MessageModule } from './messages/message.module';
-import { RouterModule } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 import { AppRoutes } from './app-routes';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -23,10 +22,12 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
     BrowserModule,
     HttpClientModule,
     InMemoryWebApiModule.forRoot(ProductData, { delay: 1000 }),
-    ProductModule,
     UserModule,
     MessageModule,
-    RouterModule.forRoot(AppRoutes),
+    RouterModule.forRoot(AppRoutes,
+      {
+        preloadingStrategy:PreloadAllModules
+      }),
     BrowserAnimationsModule
   ],
   declarations: [
